@@ -12,16 +12,27 @@
 
     <div id="component"></div>
 
+	<!-- This is for rendering multiple elements -->
     <script type="text/babel">
 	
 	var Test_component = React.createClass({
 		render: function(){
-			return (<h2>Test component 1</h2>);
+			return (
+			<div>
+				<h2>Test component 1</h2>
+				<p>Test component 1b</p>
+			</div>
+			
+			);
 		}
 	});
 	
         ReactDOM.render(
-            <Test_component />, document.getElementById('component')
+			<div>
+            <Test_component />
+            <Test_component />
+			</div>
+			, document.getElementById('component')
         );
     </script>
 
