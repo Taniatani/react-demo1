@@ -10,31 +10,54 @@
 </head>
 <body>
 
-    <div id="component"></div>
+    <div id="app"></div>
 
-	<!-- This is for rendering multiple elements -->
-    <script type="text/babel">
+	<!-- Tut-4: This is for rendering multiple elements -->
 	
-	var Test_component = React.createClass({
-		render: function(){
-			return (
-			<div>
-				<h2>Test component 1</h2>
-				<p>Test component 1b</p>
-			</div>
+    <!-- <script type="text/babel"> -->
+	
+	<!-- var Test_component = React.createClass({ -->
+		<!-- render: function(){ -->
+			<!-- return ( -->
+			<!-- <div> -->
+				<!-- <h2>Test component 1</h2> -->
+				<!-- <p>Test component 1b</p> -->
+			<!-- </div> -->
 			
-			);
-		}
-	});
+			<!-- ); -->
+		<!-- } -->
+	<!-- }); -->
 	
-        ReactDOM.render(
-			<div>
-            <Test_component />
-            <Test_component />
-			</div>
-			, document.getElementById('component')
-        );
-    </script>
+        <!-- ReactDOM.render( -->
+			<!-- <div> -->
+            <!-- <Test_component /> -->
+            <!-- <Test_component /> -->
+			<!-- </div> -->
+			<!-- , document.getElementById('component') -->
+        <!-- ); -->
+    <!-- </script> -->
 
+		<!-- Tut-5: Using Properties -->
+		
+		<script type="text/babel">
+			var Movie = React.createClass({
+			render: function(){
+				return(
+					<div>
+						<h1> {this.props.title}</h1>
+						<p> {this.props.genre}</p>
+					</div>
+				);
+			}
+			});
+			
+			ReactDOM.render(
+			<div>
+				<Movie title= "Run" genre = " action"/>
+				<Movie title= "Baby's Day out" genre = " commedy"/>
+				<Movie title= "Run" genre = " action"/>
+			</div>,
+			document.getElementById("app"));
+		</script>
 </body>
 </html>
