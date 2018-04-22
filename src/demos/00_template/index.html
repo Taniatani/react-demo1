@@ -140,6 +140,8 @@
 					console.log("removing is ongoing");
 				},
 				save: function(){
+					var val = this.refs.newText.value;
+					console.log("New text: "+ val )
 					this.setState({editing: false})
 				},
 				cancel: function(){
@@ -158,7 +160,7 @@
 				renderForm : function(){
 					return(
 						<div>
-							<textarea defaultValue = {this.props.children}></textarea>
+							<textarea ref="newText" defaultValue = {this.props.children}></textarea>
 							<button className = "btnSave" onClick = {this.save}>Save</button>
 							<button className = "btnCancel" onClick = {this.cancel}>Cancel</button>
 						</div>
