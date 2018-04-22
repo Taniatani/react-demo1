@@ -7,10 +7,38 @@
     <script src="../../js/react.min.js"></script>
     <script src="../../js/react-dom.min.js"></script>
     <script src="../../js/browser.min.js"></script>
+	<style>
+	.container{
+		background-color: #8055FF;
+		padding: 5em;
+		text-align: center;
+		width: 200px;
+	}
+	div{
+		padding: .5em;
+	}
+	.commentTxt{
+		color: #fff;
+		padding: 1em;
+		background-color: #;
+	}
+	button{
+		border: none;
+		padding: .5em .8em;
+		margin: 5px;
+	}
+	.btnEdit{
+		background: #3CA5FF;
+	}
+	.btnRemove{
+		background: #D9342A;
+		color: #fff;
+	}
+	</style>
 </head>
 <body>
 
-    <div id="app"></div>
+    <div id="app" class= "container"></div>
 
 	<!-- Tut-4: This is for rendering multiple elements -->
 	
@@ -39,25 +67,58 @@
 
 		<!-- Tut-5: Using Properties -->
 		
+		<!-- <script type="text/babel"> -->
+			<!-- var Movie = React.createClass({ -->
+			<!-- render: function(){ -->
+				<!-- return( -->
+					<!-- <div> -->
+						<!-- <h1> {this.props.title}</h1> -->
+						<!-- <p> {this.props.genre}</p> -->
+					<!-- </div> -->
+				<!-- ); -->
+			<!-- } -->
+			<!-- }); -->
+			
+			<!-- ReactDOM.render( -->
+			<!-- <div> -->
+				<!-- <Movie title= "Run" genre = " action"/> -->
+				<!-- <Movie title= "Baby's Day out" genre = " commedy"/> -->
+				<!-- <Movie title= "Run" genre = " action"/> -->
+			<!-- </div>, -->
+			<!-- document.getElementById("app")); -->
+		<!-- </script> -->
+		
+		<!-- Tut-6: Event Handling -->
+		
 		<script type="text/babel">
-			var Movie = React.createClass({
-			render: function(){
-				return(
-					<div>
-						<h1> {this.props.title}</h1>
-						<p> {this.props.genre}</p>
-					</div>
-				);
-			}
-			});
+			var Comment = React.createClass({
+			
+				edit: function(){
+					alert("Editing...")
+				},
+				remove: function(){
+					alert("Removing...")
+				},
+				render: function(){
+					return(
+						<div>
+							<div className = "commentTxt" >{this.props.children}</div>
+							<button className = "btnEdit" onClick = {this.edit}>Edit</button>
+							<button className = "btnRemove" onClick = {this.remove}>Remove</button>
+						</div>
+					);
+				}
+			})
+		
 			
 			ReactDOM.render(
-			<div>
-				<Movie title= "Run" genre = " action"/>
-				<Movie title= "Baby's Day out" genre = " commedy"/>
-				<Movie title= "Run" genre = " action"/>
+			<div className= "board">
+				<Comment>This is a comment.</Comment>
+				<Comment>Comment two.</Comment>
+				<Comment>Comment three.</Comment>
 			</div>,
 			document.getElementById("app"));
 		</script>
+		
 </body>
 </html>
