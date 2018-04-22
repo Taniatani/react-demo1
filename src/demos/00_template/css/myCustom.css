@@ -8,20 +8,27 @@
 	div{
 		padding: .5em;
 	}
-	.commentTxt{
-		color: #fff;
-		padding: 1em;
-		background-color: #;
-	}
 	button{
 		border: none;
 		padding: .5em .8em;
 		margin: 5px;
+	}
+	textarea{
+		padding: 1em;
+	}
+	.commentTxt{
+		color: #fff;
+		padding: 1em;
+		background-color: #;
 	}
 	.btnEdit{
 		background: #3CA5FF;
 	}
 	.btnRemove{
 		background: #D9342A;
+		color: #fff;
+	}
+	.btnSave{
+		background: #467C30;
 		color: #fff;
 	}

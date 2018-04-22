@@ -95,33 +95,91 @@
 		<!-- </script> -->
 		
 			<!-- Tut-7: State -->
+		<!-- <script type="text/babel"> -->
+			<!-- var CheckBox = React.createClass({ -->
+				<!-- handleChecked(){ -->
+					<!-- this.setState({checked: !this.state.checked}) -->
+				<!-- }, -->
+				<!-- getInitialState(){ -->
+					<!-- return{checked: true} -->
+				<!-- }, -->
+				<!-- render: function(){ -->
+					<!-- var msg; -->
+					<!-- if(this.state.checked){ -->
+						<!-- msg = 'checked' -->
+					<!-- }else{ -->
+						<!-- msg = 'unchecked' -->
+					<!-- } -->
+					<!-- return( -->
+						<!-- <div> -->
+							<!-- <input type= "checkbox" onChange={this.handleChecked} defaultChecked = "this.state.checked"/> -->
+							<!-- <h1>Checkbox is {msg}</h1> -->
+						<!-- </div> -->
+					<!-- ); -->
+				<!-- } -->
+			<!-- }); -->
+			
+			<!-- ReactDOM.render( -->
+			<!-- <div> -->
+				<!-- <CheckBox/> -->
+			<!-- </div>, -->
+			<!-- document.getElementById("app")); -->
+		<!-- </script> -->
+		
+		<!-- Tut-8: Adding State to components-->
+		
 		<script type="text/babel">
-			var CheckBox = React.createClass({
-				handleChecked(){
-					this.setState({checked: !this.state.checked})
+			var Comment = React.createClass({
+				getInitialState: function(){
+					return({editing: false})
 				},
-				getInitialState(){
-					return{checked: true}
+				edit: function(){
+					this.setState({editing: true})
 				},
-				render: function(){
-					var msg;
-					if(this.state.checked){
-						msg = 'checked'
-					}else{
-						msg = 'unchecked'
-					}
+				remove: function(){
+					console.log("removing is ongoing");
+				},
+				save: function(){
+					this.setState({editing: false})
+				},
+				cancel: function(){
+					this.setState({editing: false})
+				},
+				
+				renderNormal: function(){
 					return(
 						<div>
-							<input type= "checkbox" onChange={this.handleChecked} defaultChecked = "this.state.checked"/>
-							<h1>Checkbox is {msg}</h1>
+							<div className = "commentTxt" >{this.props.children}</div>
+							<button className = "btnEdit" onClick = {this.edit}>Edit</button>
+							<button className = "btnRemove" onClick = {this.remove}>Remove</button>
 						</div>
 					);
+				},
+				renderForm : function(){
+					return(
+						<div>
+							<textarea defaultValue = {this.props.children}></textarea>
+							<button className = "btnSave" onClick = {this.save}>Save</button>
+							<button className = "btnCancel" onClick = {this.cancel}>Cancel</button>
+						</div>
+					);
+				},
+				
+				render: function(){
+					if(this.state.editing){
+						 return this.renderForm();
+					}else{
+						return this.renderNormal();
+					}
 				}
-			});
+			})
+		
 			
 			ReactDOM.render(
-			<div>
-				<CheckBox/>
+			<div className= "board">
+				<Comment>This is a comment.</Comment>
+				<Comment>Comment two.</Comment>
+				<Comment>Comment three.</Comment>
 			</div>,
 			document.getElementById("app"));
 		</script>
