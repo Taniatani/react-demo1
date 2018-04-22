@@ -1,0 +1,27 @@
+.container{
+		background-color: #8055FF;
+		padding: 5em;
+		text-align: center;
+		width: 200px;
+		color: #fff;
+	}
+	div{
+		padding: .5em;
+	}
+	.commentTxt{
+		color: #fff;
+		padding: 1em;
+		background-color: #;
+	}
+	button{
+		border: none;
+		padding: .5em .8em;
+		margin: 5px;
+	}
+	.btnEdit{
+		background: #3CA5FF;
+	}
+	.btnRemove{
+		background: #D9342A;
+		color: #fff;
+	}

@@ -7,34 +7,8 @@
     <script src="../../js/react.min.js"></script>
     <script src="../../js/react-dom.min.js"></script>
     <script src="../../js/browser.min.js"></script>
-	<style>
-	.container{
-		background-color: #8055FF;
-		padding: 5em;
-		text-align: center;
-		width: 200px;
-	}
-	div{
-		padding: .5em;
-	}
-	.commentTxt{
-		color: #fff;
-		padding: 1em;
-		background-color: #;
-	}
-	button{
-		border: none;
-		padding: .5em .8em;
-		margin: 5px;
-	}
-	.btnEdit{
-		background: #3CA5FF;
-	}
-	.btnRemove{
-		background: #D9342A;
-		color: #fff;
-	}
-	</style>
+	<link rel= "stylesheet" href= "css/myCustom.css">
+
 </head>
 <body>
 
@@ -90,32 +64,64 @@
 		
 		<!-- Tut-6: Event Handling -->
 		
-		<script type="text/babel">
-			var Comment = React.createClass({
+		<!-- <script type="text/babel"> -->
+			<!-- var Comment = React.createClass({ -->
 			
-				edit: function(){
-					alert("Editing...")
+				<!-- edit: function(){ -->
+					<!-- alert("Editing...") -->
+				<!-- }, -->
+				<!-- remove: function(){ -->
+					<!-- alert("Removing...") -->
+				<!-- }, -->
+				<!-- render: function(){ -->
+					<!-- return( -->
+						<!-- <div> -->
+							<!-- <div className = "commentTxt" >{this.props.children}</div> -->
+							<!-- <button className = "btnEdit" onClick = {this.edit}>Edit</button> -->
+							<!-- <button className = "btnRemove" onClick = {this.remove}>Remove</button> -->
+						<!-- </div> -->
+					<!-- ); -->
+				<!-- } -->
+			<!-- }) -->
+		
+			
+			<!-- ReactDOM.render( -->
+			<!-- <div className= "board"> -->
+				<!-- <Comment>This is a comment.</Comment> -->
+				<!-- <Comment>Comment two.</Comment> -->
+				<!-- <Comment>Comment three.</Comment> -->
+			<!-- </div>, -->
+			<!-- document.getElementById("app")); -->
+		<!-- </script> -->
+		
+			<!-- Tut-7: State -->
+		<script type="text/babel">
+			var CheckBox = React.createClass({
+				handleChecked(){
+					this.setState({checked: !this.state.checked})
 				},
-				remove: function(){
-					alert("Removing...")
+				getInitialState(){
+					return{checked: true}
 				},
 				render: function(){
+					var msg;
+					if(this.state.checked){
+						msg = 'checked'
+					}else{
+						msg = 'unchecked'
+					}
 					return(
 						<div>
-							<div className = "commentTxt" >{this.props.children}</div>
-							<button className = "btnEdit" onClick = {this.edit}>Edit</button>
-							<button className = "btnRemove" onClick = {this.remove}>Remove</button>
+							<input type= "checkbox" onChange={this.handleChecked} defaultChecked = "this.state.checked"/>
+							<h1>Checkbox is {msg}</h1>
 						</div>
 					);
 				}
-			})
-		
+			});
 			
 			ReactDOM.render(
-			<div className= "board">
-				<Comment>This is a comment.</Comment>
-				<Comment>Comment two.</Comment>
-				<Comment>Comment three.</Comment>
+			<div>
+				<CheckBox/>
 			</div>,
 			document.getElementById("app"));
 		</script>
